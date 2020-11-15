@@ -1,6 +1,6 @@
 # In A Galaxy Far Far Away
 
-`In A Galaxy Far Far Away` is a command-line interface (CLI) application that fetches data through an external website's application programming interface (API). The fetched data is then instantiated into an object which is selectable with configured properties, whose data is displayed.
+__*In A Galaxy Far Far Away*__ is a command-line interface (CLI) application that fetches data through an external website's application programming interface (API). The fetched data is then instantiated into Objects which are selectable, having configured property attributes, whose data is invoked and displayed through user control.
 
 ## Installing / Getting started
 
@@ -22,14 +22,18 @@ The command-line interface (CLI) application will start at this point.
 Ruby
 ```
 
-## Versioning
+## Version 
 
-We can maybe use [SemVer](http://semver.org/) for versioning. For the versions available, see the [link to tags on this repository](/tags).
+**0.1.0**
 
 ## Api Reference
 
-https://swapi.dev/documentation
+[The Star Wars API](https://swapi.dev/documentation)
+
+## Contributors
+
+- JaSON Rete
 
 ## Licensing
 
-[MIT](https://choosealicense.com/licenses/mit/)
+This application is licensed under the [MIT License](LICENSE)

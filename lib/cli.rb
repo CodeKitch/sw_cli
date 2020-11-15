@@ -74,7 +74,8 @@ class StarWarsPlanetsCli::CLI
     end
 
     def outtahere
-            puts "\nSome witty starwars goodbye"
+            puts "\nMAY THE FORCE BE WITH YOU"
+            puts "\n"
     end
     
     def invalid_entry
