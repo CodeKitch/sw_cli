@@ -9,6 +9,7 @@ class StarWarsPlanetsCli::CLI
     def menu
         puts "\nWould you like to learn more about 'Star Wars' Planets?"
         puts "Confirm by typing 'yes' to continue or try any other key to eject."
+        puts "\n"
         input = gets.strip.downcase
         if input == "yes" || input == "y"
             selection
@@ -20,6 +21,7 @@ class StarWarsPlanetsCli::CLI
     def selection
         puts "\nTo List Planets, Please Type 'planets' "
         puts "To Exit The System, Please Type 'exit' "
+        puts "\n"
         input = gets.strip.downcase
         if input == "planets"
             puts ""
@@ -33,39 +35,49 @@ class StarWarsPlanetsCli::CLI
     end
 
     def planets_list
-        question
+        prompt
         puts"\n"
         Planet.all.each.with_index(1) do |planet, index|
             puts "#{index}. #{planet.name}"
         end
         puts"\n"
     end
- 
-    def planet_choice
-        index = gets.strip.to_i - 1
-        max_planets = Planet.all.length - 1
-        until index.between?(0,max_planets)
-            puts "That's not a choice; try again!"
-            index = gets.strip.to_i - 1
-        end
-        planet_choosen = Planet.all[index]
-        planet_selection(planet_choosen)
-    end
 
+    def planet_choice
+        # index = gets.strip.to_i - 1
+        # max_planets = Planet.all.length - 1
+        # until index.between?(0,max_planets)
+        #     puts "That's not a choice; try again!"
+        #     index = gets.strip.to_i - 1
+        # end
+        # planet_choosen = Planet.all[index]
+        # planet_selection(planet_choosen)
+    
+        input = gets.strip.downcase 
+        enter_name
+        planet_selection(input)
+    end
+ 
     def planet_selection(planet)
-        puts "\n"
-        puts "\n Name: #{planet.name}"
-        puts " Diameter: #{planet.diameter}"
-        puts " Population: #{planet.population}"
-        puts " Climate: #{planet.climate}"
-        puts " Terrain: #{planet.terrain}"
-        puts " Rotation Period: #{planet.rotation_period}"
-        puts " Orbital Period: #{planet.orbital_period}"
+        p = Planet.find_by_name(planet)
+        p.each do |plnet|
+        puts "\n Name: #{plnet.name}"
+        puts " Diameter: #{plnet.diameter}"
+        puts " Population: #{plnet.population}"
+        puts " Climate: #{plnet.climate}"
+        puts " Terrain: #{plnet.terrain}"
+        puts " Rotation Period: #{plnet.rotation_period}"
+        puts " Orbital Period: #{plnet.orbital_period}"
+        end
         selection
     end
 
-    def question
-        puts "\n Please 'enter number' of the planet you would like to learn about."
+    def enter_name
+        puts "\nPlease type the exact 'name' of your choice."
+    end
+
+    def prompt
+        puts "\nPlease 'enter name' of the planet you would like to learn about."
     end
 
     def exit
